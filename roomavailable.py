@@ -26,7 +26,7 @@ for p in data:
                       print("Room type is not available")
                   if room_type in room_available:
                     room_count =room_count+1
-                    total_rooms =total_room+room_available[room_type]
+                    total_rooms =total_rooms+room_available[room_type]
 
 if room_count > 0:
     average_rooms = total_rooms / room_count
