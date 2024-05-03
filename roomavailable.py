@@ -7,7 +7,6 @@ data=json.load(fiobj)
 fiobj.close()
 print(data)
 room_type=input("enter room type:")
-room_info=[]
 total_rooms=0
 room_count = 0
 for p in data:
@@ -26,8 +25,8 @@ for p in data:
                   else:
                       print("Room type is not available")
                   if room_type in room_available:
-                    room_count += 1
-                    total_rooms += room_available[room_type]
+                    room_count =room_count+1
+                    total_rooms =total_room+room_available[room_type]
 
 if room_count > 0:
     average_rooms = total_rooms / room_count
