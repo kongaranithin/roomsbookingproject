@@ -1,0 +1,36 @@
+import sys
+import json
+import os
+dirname = sys.argv[1]
+files = os.listdir(dirname)
+print(files)
+files_paths = []
+for f in files:
+    f_p = dirname + "\\" + f
+    files_paths.append(f_p)
+a={"Small": [], "Large": [], "Medium": [], "Phone Booth": []}
+for filename in files_paths:
+    fiobj=open(filename)
+    data=json.load(fiobj)
+    fiobj.close()
+    rooms_info={"Small":[], "Large": [], "Medium": [], "Phone Booth": []}
+    for i in data:
+        for j in i:
+            for k, v in j.items():
+                if k=="conference-categories-count":
+                    for y, z in v.items():
+                        if y in a:
+                            rooms_info[y].append(z)
+    for p, q in rooms_info.items():
+        total = sum(q)
+        avg = total / len(q) 
+        a[p].append(avg) 
+for m, n in a.items():
+    print(m,n)
+
+
+
+
+
+
+
